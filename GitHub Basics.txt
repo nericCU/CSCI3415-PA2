@@ -1,0 +1,31 @@
+====================================================================================================
+Guide to using Git on Linux:
+====================================================================================================
+Use the command below to initially download the project:
+git clone https://github.com/nericCU/CSCI3415-PA2.git
+
+
+
+Use the command below to get updates anytime after the initially download:
+git pull
+
+
+
+Use the commands below to push your changes to the GitHub Repository:
+Git add .			//Add all changed files
+Git commit -m "Comment"		//Commit changes with comment on changes
+Git push			//Push changed files to GitHub
+
+
+
+====================================================================================================
+If someone wants to make a guide for using Git on Windows, insert it below:
+====================================================================================================
+
+
+
+
+
+
+====================================================================================================
+====================================================================================================
