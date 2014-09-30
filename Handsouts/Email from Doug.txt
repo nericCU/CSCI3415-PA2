@@ -1,0 +1,23 @@
+Attached is some Ada code to do much of Programming Assignment 2. In particular, it reads the input file and creates the matrix representations for the graph. It also computes and prints the statistics on the graph.
+
+
+To run it, you need to have the porgat.txt input file in the same directory that you download and build this code. [Note that this code uses a GNAT specific regular expression package. It is included with the GNAT system.] There are a couple of commented out blocks of code that print out the array of vertex names and the edge matrix. If you're curious, you can uncomment them before you build the code. Be warned that it does produce a lot of output if you do.
+
+
+
+When you run it, you can check the values against those in the "Marvel Universe looks almost like a real social network" paper I sent out earlier - 0202174v1.pdf.
+
+
+It is missing the code to build the collaboration matrix and to print collaboration statistics.
+
+
+As part of the team reports, I would like for you to document how this code works (if you use it), as well as your own contributions.
+
+
+I will go over the code in class on Monday as in introduction to Ada.
+
+
+Have a good weekend.
+
+
+Dr. Doug Williams 
