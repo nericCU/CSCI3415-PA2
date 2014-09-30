@@ -1,12 +1,13 @@
 ====================================================================================================
 CSCI3415-Programming Assignment 2
 ====================================================================================================
-Developers:      Team 7
-		-Eric Nguyen
-		-Raphael O'Flynn
-		-Gabriella Ramirez
-		-Paul Rodriquez
-		-Kyle Ryan
+Developers:
+     Team 7
+     *Eric Nguyen
+     *Raphael O'Flynn
+     *Gabriella Ramirez
+     *Paul Rodriquez
+     *Kyle Ryan
 
 
 ====================================================================================================
@@ -15,7 +16,7 @@ Project Description:
 An Ada program that compute statistics about the Marvel Universe Social Network.
 
 For this programming assignment, we will be using a data set from the 
-Social Characteristics of the Marvel Universe web page (http://bioinfo.uib.es/~joemiro/marvel.html). 
+Social Characteristics of the Marvel Universe web page (http://bioinfo.uib.es/~joemiro/marvel.html).
 Specifically, the input file porgat.txt (http://bioinfo.uib.es/~joemiro/marvel/porgat.txt)
 defines the social network we will examine.
 
