@@ -1,0 +1,170 @@
+V "GNAT Lib v4.8"
+M P AB W=b
+A -mtune=generic
+A -march=i686
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_FLOATING_POINT
+RV NO_IO
+RV NO_IMPLICIT_LOOPS
+RV NO_LOCAL_ALLOCATORS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV SPARK
+
+U marvel_universe_hint%b  marvel_universe_hint.adb  5ebe3bfd NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.float_text_io%s	a-flteio.ads		a-flteio.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.numerics%s	a-numeri.ads		a-numeri.ali
+W ada.numerics.elementary_functions%s  a-nuelfu.ads  a-nuelfu.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.regpat%s		g-regpat.ads		g-regpat.ali
+W interfaces%s		interfac.ads		interfac.ali
+W system.concat_2%s	s-conca2.adb		s-conca2.ali
+W system.concat_3%s	s-conca3.adb		s-conca3.ali
+W system.concat_7%s	s-conca7.adb		s-conca7.ali
+W system.img_int%s	s-imgint.adb		s-imgint.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.val_int%s	s-valint.adb		s-valint.ali
+
+D ada.ads		20070406091342 3ffc8e18
+D a-except.ads		20120716125141 10fcae55
+D a-finali.ads		20111121113555 52ecdc1b
+D a-flteio.ads		20070406091342 e18a47a0
+D a-inteio.ads		20070406091342 f64b89a4
+D a-ioexce.ads		20091130110856 8b9de6cd
+D a-numeri.ads		20080324174807 bb51c45a
+D a-nuelfu.ads		20070406091342 03e83d1c
+D a-ngelfu.ads		20120515120655 243903c9
+D a-stream.ads		20090409150019 2ca4ee37
+D a-tags.ads		20111212115430 6c0509d0
+D a-textio.ads		20130104124955 386df5d4
+D a-tiflio.ads		20090409150019 56fbda09
+D a-tiinio.ads		20090409150019 aa04e5d6
+D a-unccon.ads		20070406091342 f9eb8f06
+D gnat.ads		20110801150502 fd2ad2f1
+D g-regpat.ads		20110801150502 b85d88ef
+D interfac.ads		20110906094621 129923ea
+D i-cstrea.ads		20130102105938 3286f6aa
+D marvel_universe_hint.adb  20140929202422 caa7b5de
+D system.ads		20140416144300 bd760655
+D s-conca2.ads		20090420091404 fbd0f2fc
+D s-conca3.ads		20090420091404 762a026a
+D s-conca7.ads		20090420091404 1c57f31a
+D s-crtl.ads		20130102105938 1ea48bce
+D s-exctab.ads		20090417131547 66e51330
+D s-ficobl.ads		20120709130952 55a71d43
+D s-finmas.ads		20111024091915 b95bb341
+D s-finroo.ads		20120426095924 4ff27390
+D s-imgint.ads		20090409150019 02dbe0c2
+D s-parame.ads		20110830140625 b6e20cc0
+D s-pooglo.ads		20110804083314 542f33d0
+D s-regpat.ads		20120410054430 825a9b7f
+D s-secsta.ads		20110830140625 eea35a36
+D s-soflin.ads		20120515094619 24c8153c
+D s-stache.ads		20090417130712 596fc1b4
+D s-stalib.ads		20130104124955 f78bcf95
+D s-stoele.ads		20090417130712 facd7d98
+D s-stoele.adb		20100617152355 afc5dc80
+D s-stopoo.ads		20111013103733 7b8fbeee
+D s-traent.ads		20090417130712 5221ee41
+D s-unstyp.ads		20090409150019 6ae15c76
+D s-valint.ads		20090409150019 48a52a3f
+D s-wchcon.ads		20090417130712 bfeb2e3d
+X 1 ada.ads
+16K9*Ada 19e8 20|1r6 1r19 1r40 1r72 2r5 2r18 2r39 2r71
+X 4 a-flteio.ads
+20K13*Float_Text_IO[13|45] 20|1w44 2r43
+X 5 a-inteio.ads
+18K13*Integer_Text_IO[14|45] 20|1w23 2r22
+X 7 a-numeri.ads
+16K13*Numerics 32e17 20|1r76 2r75
+X 8 a-nuelfu.ads
+18K22*Elementary_Functions[9|39] 20|1w85 2r84
+X 9 a-ngelfu.ads
+42V13*Sqrt{float} 20|64s10[8|18]
+X 12 a-textio.ads
+49K13*Text_IO 471e16 20|1w10 2r9
+52P9*File_Type(369R9) 20|7r16
+53n23*In_File{53E9} 20|72r21
+73I12*Field{integer}
+92U14*Open 20|72s3
+98U14*Close 20|176s3
+171V13*End_Of_Line{boolean} 20|158s17
+183V13*End_Of_File{boolean} 20|156s15
+242U14*Put 20|60s5 63s5
+244U14*Get_Line 20|80s5 119s7 139s5
+263U14*Put_Line 20|54s5 57s5 62s5 66s5 73s3 83s7 89s3 90s3 92s5 98s3 117s5
+. 122s9 123s9 142s7 155s5 181s3 183s3
+X 13 a-tiflio.ads
+67U14*Put 20|61s5[4|20] 64s5[4|20]
+69i7 Fore{12|73I12} 20|61r29[4|20] 65r10[4|20]
+70i7 Aft{12|73I12} 20|61r40[4|20] 65r21[4|20]
+71i7 Exp{12|73I12} 20|61r50[4|20] 65r31[4|20]
+X 14 a-tiinio.ads
+50U14*Get 20|157s7[5|18] 159s9[5|18]
+X 16 gnat.ads
+34K9*GNAT 37e9 20|1r59 2r58
+X 17 g-regpat.ads
+72K14*Regpat=72:36 20|1w64 2r63
+X 20 marvel_universe_hint.adb
+4U11*Marvel_Universe_Hint 4b11 205l5 205t25
+6a3 Input_File_Name{string} 72r30 73r23
+7p3 Input_File{12|52P9} 72m9 72r9 80r15 119r17 139r15 156r28 157r12 158r30
+. 159r14 176m10 176r10
+9a3 Buffer{string} 80m27 81r39 86r35 87r37 119m29 120r38 122r19 126r39 139m27
+. 140r40
+10i3 Last{natural} 80m35 81r52 119m37 120r51 122r32 139m35 140r53
+12i3 N_Vertices{positive} 86m5 89r55 91r21 102r47 108r68 153r49 184r29
+13i3 N_Characters{positive} 87m5 90r57 91r6 108r34 108r48 152r34 153r29 182r29
+. 184r42
+15P8 String_Access(string) 16r58
+16A8 Vertex_Name_Array(15P8)<integer> 17r43 102r23
+17P8 Vertex_Name_Array_Access(16A8) 19r18
+19p3 Vertex_Names{17P8} 56r15 59r15 102m3 118r14 126m7 126r7
+21A8 Edge_Matrix(boolean)<integer><integer> 22r37 108r16
+22P8 Edge_Matrix_Access(21A8) 24r11
+24p3 Edges{22P8} 108m3 109r3 160m9 160r9 188r38 189r39 191r14 192r16 193r12
+26A8 Count_Vector(natural)<integer> 28r40 188r24 189r25
+28U13 Print_Statistics 28b13 28>31 28>54 67l7 67t23 199s5 200s5
+28a31 Counts{26A8} 29r33 30r26 30r34 31r33 32r26 32r34 37r14 38r10 40r20
+. 42r10 44r20 47r29
+28s54 Title{string} 54r32 57r32 60r27 63r45
+29i5 Minimum_Index{positive} 39m9 56r29
+30i5 Minimum{natural} 38r23 40m9 55r30
+31i5 Maximum_Index{positive} 43m9 59r29
+32i5 Maximum{natural} 42r23 44m9 58r30
+33i5 N{natural} 49m9 49r14 61r24 64r52 64r65
+34f5 Sum{float} 50m9 50r16 61r10 64r32 64r38
+35f5 Sum_Squares{float} 51m9 51r24 64r17
+37i9 I{integer} 38r18 39r26 40r28 42r18 43r26 44r28 47r37
+47f9 X{float} 50r22 51r38 51r42
+77a5 Matches{33|340A9} 81m59 82r8 86r43 86r64 87r45 87r66
+78a5 Vertices_Regexp{string} 81r21
+113a5 Matches{33|340A9} 120m58 121r10 126r47 126r68
+114a5 Vertex_Regexp{string} 115r58
+115r5 Vertex_Pattern_Matcher{33|378R9} 120r14
+118i9 I{integer} 126r21
+136a5 Matches{33|340A9} 140m60 141r8
+137a5 Edgeslist_Regexp{string} 140r21
+152i5 Source{positive} 157m24 160r16
+153i5 Target{positive} 159m26 160r24
+188a5 Character_Counts{26A8} 194m11 194r35 199r23
+189a5 Comic_Book_Counts{26A8} 195m11 195r36 200r23
+191i9 I{integer} 193r19 194r29 194r53
+192i11 J{integer} 193r22 195r30 195r55
+X 33 s-regpat.ads
+336i7*First{natural} 20|86r55 87r57 126r59
+337i7*Last{natural} 20|86r76 87r78 126r80
+340A9*Match_Array(335R9)<integer> 20|77r15 113r15 136r15
+366r4*No_Match{335R9} 20|82r22 121r24 141r22
+378R9*Pattern_Matcher 20|115r30 33|639e14
+384V13*Compile{378R9} 20|81s12 115s49 140s12
+569U14*Match 20|81s5 120s7 140s5
+
