@@ -14,3 +14,19 @@ The minimum characters per comic book is  1 (M/PRM 35).
 The maximum characters per comic book is  111 (COC 1).
 The average characters per comic book is 7.47.
 The standard deviation of the characters per comic book is 6.30.
+
+
+============================================================
+At a minimum, we want to computer:
+
+[X] number of characters
+[X] number of comic books
+[X] minimum characters per comic book
+[X] maximum characters per comic book
+[X] average characters per comic book
+[X] minimum comic books per character
+[X] maximum comic books per character
+[X] average comic books per character
+[] total number of collaborations
+[] number of collaborating pairs
+[] mean number of collaborators per character

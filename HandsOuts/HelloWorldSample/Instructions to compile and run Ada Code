@@ -1,0 +1,18 @@
+======================================================================
+Instructions to compile and run Ada Code [Linux]:
+======================================================================
+
+*install gcc and gnats-4.8
+
+*Use an editor to create a .adb file
+     Possible editors include vim, gvim, jedit, pico, pfe, ...
+
+*To compile hello.adb use this command:
+    gnatmake programName
+    You can also say gnatmake programName.adb
+
+*To run your program use this command:
+    ./programName
+
+======================================================================
+======================================================================
