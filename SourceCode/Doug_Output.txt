@@ -1,0 +1,25 @@
+//Doug's output for PA2
+
+File porgat.txt opened for
+Number of vertices = 19428
+Number of characters = 6486
+Creating the vertex name vector and edge matrix.
+Reading the vertex names.
+Reading the edge matrix.
+Creating the collaboration matrix.
+The number of characters is 6486.
+The number of comic books is 12942.
+The minimum comic books per character is 1 (24-HOUR MAN/EMMANUEL).
+The maximum comic books per character is 1625 (SPIDER-MAN/PETER PAR).
+The average comic books per character is 14.90.
+The standard deviation of the comic books per character is 59.88.
+The minimum characters per comic book is 1 (M/PRM 25).
+The maximum characters per comic book is 111 (COC 1).
+The average characters per comic book is 7.47.
+The standard deviation of the characters per comic book is 6.30.
+The total number of collaboration is 569770.
+The total number of collaborators is 168267.
+The minimum number of collaborators is 0 (BERSERKER II).
+The maximum number of collaborators is 1933 (CAPTAIN AMERICA).
+The average number of collaborators is 51.89.
+The standard deviation of the number of collaborators is 114.04.
