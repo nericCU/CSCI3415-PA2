@@ -43,6 +43,7 @@ procedure Marvel_Universe_Hint is
 
   Collaborations : Collaboration_Matrix_Access;
 
+  --Implementation of Print_Statistics
   procedure Print_Statistics (Counts : Count_Vector; Title : String) is
     Minimum_Index : Positive := Counts'First;
     Minimum : Natural := Counts (Counts'First);
@@ -219,6 +220,28 @@ begin
   end;
 
   -- Your code to do the other processing will go here.
+
+  -- Here is the code for "Total Number of Collaborations"
+
+
+
+
+
+
+  -- Here is the code for "Number of Collaborating Pairs"
+
+
+
+
+
+  -- Here is the code for "Mean Number of Collaborations Per Character"
+
+
+
+
+
+
+
 
 end Marvel_Universe_Hint;
 

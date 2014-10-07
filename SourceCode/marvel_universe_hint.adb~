@@ -1,30 +1,49 @@
+-- marvel_universe_hint.adb
+-- CSCI3415-PA2: Analysis of Marvel Universe using the Ada Programming Language
+-- Created by: (Professor) Douglas Milton
+-- Modified by: Team 7- Eric Nguyen, Raphael O'Flynn, Gabriella Ramirez, Paul Rodriquez, Kyle Ryan
+-- Last Modified: October-06-2014
+
 with Ada.Text_IO, Ada.Integer_Text_IO, Ada.Float_Text_IO, GNAT.Regpat, Ada.Numerics.Elementary_Functions;
 use Ada.Text_IO, Ada.Integer_Text_IO, Ada.Float_Text_IO, GNAT.Regpat, Ada.Numerics.Elementary_Functions;
 
 procedure Marvel_Universe_Hint is
 
+  --Declaration of input file
   Input_File_Name : constant String := "porgat.txt";
   Input_File : File_Type;
 
+  --Declaration of Buffer String used to read input file
   Buffer : String (1 .. 100); -- This should be sufficient for us.
   Last : Natural;
-
+  
+  --Declaration of variables to keep track of Number of Vertices and Number of Characters
   N_Vertices : Positive;
   N_Characters : Positive;
 
+  --Declaration of Vertex Name Array
   type String_Access is access String;
   type Vertex_Name_Array is array (Positive range <>) of String_Access;
   type Vertex_Name_Array_Access is access Vertex_Name_Array;
 
   Vertex_Names : Vertex_Name_Array_Access;
 
+  --Declaration of Edge Matrix
   type Edge_Matrix is array (Positive range <>, Positive range <>) of Boolean;
   type Edge_Matrix_Access is access Edge_Matrix;
 
   Edges : Edge_Matrix_Access;
 
+  --Declaration of Vector used to keep count of
   type Count_Vector is array (Positive range <>) of Natural;
 
+  --Declaration of Collaboration Matrix
+  type Collaboration_Matrix is array (Positive range <>, Positive range <>) of Natural;
+  type Collaboration_Matrix_Access is access Collaboration_Matrix;
+
+  Collaborations : Collaboration_Matrix_Access;
+
+  --Implementation of Print_Statistics
   procedure Print_Statistics (Counts : Count_Vector; Title : String) is
     Minimum_Index : Positive := Counts'First;
     Minimum : Natural := Counts (Counts'First);
@@ -201,6 +220,28 @@ begin
   end;
 
   -- Your code to do the other processing will go here.
+
+  -- Here is the code for "Total Number of Collaborations"
+
+
+
+
+
+
+  -- Here is the code for "Number of Collaborating Pairs"
+
+
+
+
+
+  -- Here is the code for "Mean Number of Collaborations Per Character"
+
+
+
+
+
+
+
 
 end Marvel_Universe_Hint;
 
