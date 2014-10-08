@@ -231,6 +231,8 @@ begin
   --declare
     Collaborations := new Collaboration_Matrix (1 .. N_Characters, 1 .. N_Characters);
     Collaborations.all := (others => (others => 0));
+
+  --code below by: Eric Nguyen
   --begin
     for j in Integer range 6487..19428 loop
       for i in Integer range 1 .. N_Characters loop

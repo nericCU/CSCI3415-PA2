@@ -234,7 +234,7 @@ begin
   --begin
     for j in Integer range 6487..19428 loop
       for i in Integer range 1 .. N_Characters loop
-        if Edges (i, j) = Edge( i+1 , j) then
+        if Edges (i, j) = Edges ( i+1 , j) then
           if Edges (i, j) = true then
             Collaborations (i, i+1) := Collaborations (i, i+1) + 1;
           end if;
