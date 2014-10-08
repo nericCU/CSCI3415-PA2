@@ -13,7 +13,7 @@ RV NO_STANDARD_STORAGE_POOLS
 RV NO_DEFAULT_INITIALIZATION
 RV SPARK
 
-U marvel_universe_hint%b  marvel_universe_hint.adb  08ec68ed NE OO SU
+U marvel_universe_hint%b  marvel_universe_hint.adb  9631c374 NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.float_text_io%s	a-flteio.ads		a-flteio.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -50,7 +50,7 @@ D gnat.ads		20110801150502 fd2ad2f1
 D g-regpat.ads		20110801150502 b85d88ef
 D interfac.ads		20110906094621 129923ea
 D i-cstrea.ads		20130102105938 3286f6aa
-D marvel_universe_hint.adb  20141006234836 9cf5e6ce
+D marvel_universe_hint.adb  20141008204020 02284d57
 D system.ads		20140416144300 bd760655
 D s-conca2.ads		20090420091404 fbd0f2fc
 D s-conca3.ads		20090420091404 762a026a
@@ -86,86 +86,89 @@ X 7 a-numeri.ads
 X 8 a-nuelfu.ads
 18K22*Elementary_Functions[9|39] 20|7w85 8r84
 X 9 a-ngelfu.ads
-42V13*Sqrt{float} 20|82s10[8|18]
+42V13*Sqrt{float} 20|83s10[8|18]
 X 12 a-textio.ads
 49K13*Text_IO 471e16 20|7w10 8r9
 52P9*File_Type(369R9) 20|14r16
-53n23*In_File{53E9} 20|90r21
+53n23*In_File{53E9} 20|91r21
 73I12*Field{integer}
-92U14*Open 20|90s3
-98U14*Close 20|194s3
-171V13*End_Of_Line{boolean} 20|176s17
-183V13*End_Of_File{boolean} 20|174s15
-242U14*Put 20|78s5 81s5
-244U14*Get_Line 20|98s5 137s7 157s5
-263U14*Put_Line 20|72s5 75s5 80s5 84s5 91s3 101s7 107s3 108s3 110s5 116s3
-. 135s5 140s9 141s9 160s7 173s5 199s3 201s3
+92U14*Open 20|91s3
+98U14*Close 20|195s3
+171V13*End_Of_Line{boolean} 20|177s17
+183V13*End_Of_File{boolean} 20|175s15
+242U14*Put 20|79s5 82s5
+244U14*Get_Line 20|99s5 138s7 158s5
+263U14*Put_Line 20|73s5 76s5 81s5 85s5 92s3 102s7 108s3 109s3 111s5 117s3
+. 136s5 141s9 142s9 161s7 174s5 200s3 202s3
 X 13 a-tiflio.ads
-67U14*Put 20|79s5[4|20] 82s5[4|20]
-69i7 Fore{12|73I12} 20|79r29[4|20] 83r10[4|20]
-70i7 Aft{12|73I12} 20|79r40[4|20] 83r21[4|20]
-71i7 Exp{12|73I12} 20|79r50[4|20] 83r31[4|20]
+67U14*Put 20|80s5[4|20] 83s5[4|20]
+69i7 Fore{12|73I12} 20|80r29[4|20] 84r10[4|20]
+70i7 Aft{12|73I12} 20|80r40[4|20] 84r21[4|20]
+71i7 Exp{12|73I12} 20|80r50[4|20] 84r31[4|20]
 X 14 a-tiinio.ads
-50U14*Get 20|175s7[5|18] 177s9[5|18]
+50U14*Get 20|176s7[5|18] 178s9[5|18]
 X 16 gnat.ads
 34K9*GNAT 37e9 20|7r59 8r58
 X 17 g-regpat.ads
 72K14*Regpat=72:36 20|7w64 8r63
 X 20 marvel_universe_hint.adb
-10U11*Marvel_Universe_Hint 10b11 223l5 223t25
-13a3 Input_File_Name{string} 90r30 91r23
-14p3 Input_File{12|52P9} 90m9 90r9 98r15 137r17 157r15 174r28 175r12 176r30
-. 177r14 194m10 194r10
-17a3 Buffer{string} 98m27 99r39 104r35 105r37 137m29 138r38 140r19 144r39
-. 157m27 158r40
-18i3 Last{natural} 98m35 99r52 137m37 138r51 140r32 157m35 158r53
-21i3 N_Vertices{positive} 104m5 107r55 109r21 120r47 126r68 171r49 202r29
-22i3 N_Characters{positive} 105m5 108r57 109r6 126r34 126r48 170r34 171r29
-. 200r29 202r42
+10U11*Marvel_Universe_Hint 10b11 265l5 265t25
+13a3 Input_File_Name{string} 91r30 92r23
+14p3 Input_File{12|52P9} 91m9 91r9 99r15 138r17 158r15 175r28 176r12 177r30
+. 178r14 195m10 195r10
+17a3 Buffer{string} 99m27 100r39 105r35 106r37 138m29 139r38 141r19 145r39
+. 158m27 159r40
+18i3 Last{natural} 99m35 100r52 138m37 139r51 141r32 158m35 159r53
+21i3 N_Vertices{positive} 105m5 108r55 110r21 121r47 127r68 172r49 203r29
+22i3 N_Characters{positive} 106m5 109r57 110r6 127r34 127r48 171r34 172r29
+. 201r29 203r42 232r54 232r73 236r35
 25P8 String_Access(string) 26r58
-26A8 Vertex_Name_Array(25P8)<integer> 27r43 120r23
+26A8 Vertex_Name_Array(25P8)<integer> 27r43 121r23
 27P8 Vertex_Name_Array_Access(26A8) 29r18
-29p3 Vertex_Names{27P8} 74r15 77r15 120m3 136r14 144m7 144r7
-32A8 Edge_Matrix(boolean)<integer><integer> 33r37 126r16
+29p3 Vertex_Names{27P8} 75r15 78r15 121m3 137r14 145m7 145r7
+32A8 Edge_Matrix(boolean)<integer><integer> 33r37 127r16
 33P8 Edge_Matrix_Access(32A8) 35r11
-35p3 Edges{33P8} 126m3 127r3 178m9 178r9 206r38 207r39 209r14 210r16 211r12
-38A8 Count_Vector(natural)<integer> 46r40 206r24 207r25
-41A8 Collaboration_Matrix(natural)<integer><integer> 42r46
+35p3 Edges{33P8} 127m3 128r3 179m9 179r9 207r38 208r39 210r14 211r16 212r12
+. 237r12 237r27 238r14
+38A8 Count_Vector(natural)<integer> 47r40 207r24 208r25
+41A8 Collaboration_Matrix(natural)<integer><integer> 42r46 232r27
 42P8 Collaboration_Matrix_Access(41A8) 44r20
-44p3 Collaborations{42P8}
-46U13 Print_Statistics 46b13 46>31 46>54 85l7 85t23 217s5 218s5
-46a31 Counts{38A8} 47r33 48r26 48r34 49r33 50r26 50r34 55r14 56r10 58r20
-. 60r10 62r20 65r29
-46s54 Title{string} 72r32 75r32 78r27 81r45
-47i5 Minimum_Index{positive} 57m9 74r29
-48i5 Minimum{natural} 56r23 58m9 73r30
-49i5 Maximum_Index{positive} 61m9 77r29
-50i5 Maximum{natural} 60r23 62m9 76r30
-51i5 N{natural} 67m9 67r14 79r24 82r52 82r65
-52f5 Sum{float} 68m9 68r16 79r10 82r32 82r38
-53f5 Sum_Squares{float} 69m9 69r24 82r17
-55i9 I{integer} 56r18 57r26 58r28 60r18 61r26 62r28 65r37
-65f9 X{float} 68r22 69r38 69r42
-95a5 Matches{33|340A9} 99m59 100r8 104r43 104r64 105r45 105r66
-96a5 Vertices_Regexp{string} 99r21
-131a5 Matches{33|340A9} 138m58 139r10 144r47 144r68
-132a5 Vertex_Regexp{string} 133r58
-133r5 Vertex_Pattern_Matcher{33|378R9} 138r14
-136i9 I{integer} 144r21
-154a5 Matches{33|340A9} 158m60 159r8
-155a5 Edgeslist_Regexp{string} 158r21
-170i5 Source{positive} 175m24 178r16
-171i5 Target{positive} 177m26 178r24
-206a5 Character_Counts{38A8} 212m11 212r35 217r23
-207a5 Comic_Book_Counts{38A8} 213m11 213r36 218r23
-209i9 I{integer} 211r19 212r29 212r53
-210i11 J{integer} 211r22 213r30 213r55
+44p3 Collaborations{42P8} 232m5 233r5 239m13 239r13 239r40
+47U13 Print_Statistics 47b13 47>31 47>54 86l7 86t23 218s5 219s5
+47a31 Counts{38A8} 48r33 49r26 49r34 50r33 51r26 51r34 56r14 57r10 59r20
+. 61r10 63r20 66r29
+47s54 Title{string} 73r32 76r32 79r27 82r45
+48i5 Minimum_Index{positive} 58m9 75r29
+49i5 Minimum{natural} 57r23 59m9 74r30
+50i5 Maximum_Index{positive} 62m9 78r29
+51i5 Maximum{natural} 61r23 63m9 77r30
+52i5 N{natural} 68m9 68r14 80r24 83r52 83r65
+53f5 Sum{float} 69m9 69r16 80r10 83r32 83r38
+54f5 Sum_Squares{float} 70m9 70r24 83r17
+56i9 I{integer} 57r18 58r26 59r28 61r18 62r26 63r28 66r37
+66f9 X{float} 69r22 70r38 70r42
+96a5 Matches{33|340A9} 100m59 101r8 105r43 105r64 106r45 106r66
+97a5 Vertices_Regexp{string} 100r21
+132a5 Matches{33|340A9} 139m58 140r10 145r47 145r68
+133a5 Vertex_Regexp{string} 134r58
+134r5 Vertex_Pattern_Matcher{33|378R9} 139r14
+137i9 I{integer} 145r21
+155a5 Matches{33|340A9} 159m60 160r8
+156a5 Edgeslist_Regexp{string} 159r21
+171i5 Source{positive} 176m24 179r16
+172i5 Target{positive} 178m26 179r24
+207a5 Character_Counts{38A8} 213m11 213r35 218r23
+208a5 Comic_Book_Counts{38A8} 214m11 214r36 219r23
+210i9 I{integer} 212r19 213r29 213r53
+211i11 J{integer} 212r22 214r30 214r55
+235i9 j{integer} 237r22 237r41 238r24
+236i11 i{integer} 237r19 237r35 238r21 239r29 239r32 239r56 239r59
 X 33 s-regpat.ads
-336i7*First{natural} 20|104r55 105r57 144r59
-337i7*Last{natural} 20|104r76 105r78 144r80
-340A9*Match_Array(335R9)<integer> 20|95r15 131r15 154r15
-366r4*No_Match{335R9} 20|100r22 139r24 159r22
-378R9*Pattern_Matcher 20|133r30 33|639e14
-384V13*Compile{378R9} 20|99s12 133s49 158s12
-569U14*Match 20|99s5 138s7 158s5
+336i7*First{natural} 20|105r55 106r57 145r59
+337i7*Last{natural} 20|105r76 106r78 145r80
+340A9*Match_Array(335R9)<integer> 20|96r15 132r15 155r15
+366r4*No_Match{335R9} 20|101r22 140r24 160r22
+378R9*Pattern_Matcher 20|134r30 33|639e14
+384V13*Compile{378R9} 20|100s12 134s49 159s12
+569U14*Match 20|100s5 139s7 159s5
 

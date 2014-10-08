@@ -30,11 +30,3 @@ At a minimum, we want to computer:
 [] total number of collaborations
 [] number of collaborating pairs
 [] mean number of collaborators per character
-
-
-The total number of collaboration is 569770.
-The total number of collaborators is 168267.
-The minimum number of collaborators is 0 (BERSERKER II).
-The maximum number of collaborators is 1933 (CAPTAIN AMERICA).
-The average number of collaborators is 51.89.
-The standard deviation of the number of collaborators is 114.04.

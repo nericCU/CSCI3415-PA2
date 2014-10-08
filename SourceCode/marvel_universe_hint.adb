@@ -126,9 +126,6 @@ begin
   --Edges := new Edge_Matrix'(1 .. N_Characters => (N_Characters + 1 .. N_Vertices => False));
   Edges := new Edge_Matrix (1 .. N_Characters, N_Characters + 1 .. N_Vertices);
   Edges.all := (others => (others => False));
-  -- Here is where I will create and initialize the collaboration matrix to keep
-  -- everything organized. by Kyle Ryan
-  Collaborations := new Collaboration_Matrix (1 .. N_Characters, 1 .. N_Characters);
 
   -- Read and parse the vertex name lines and build the array of vertex names.
   declare
@@ -226,7 +223,26 @@ begin
 
   -- Here is the code for "Total Number of Collaborations"
 
+  --Edges := new Edge_Matrix (1 .. N_Characters, N_Characters + 1 .. N_Vertices);
+  --Edges.all := (others => (others => False));
 
+  -- Here is where I will create and initialize the collaboration matrix to keep
+  -- everything organized. by Kyle Ryan
+  --declare
+    Collaborations := new Collaboration_Matrix (1 .. N_Characters, 1 .. N_Characters);
+    Collaborations.all := (others => (others => 0));
+  --begin
+    for j in Integer range 6487..19428 loop
+      for i in Integer range 1 .. N_Characters loop
+        if Edges (i, j) = Edges ( i+1 , j) then
+          if Edges (i, j) = true then
+            Collaborations (i, i+1) := Collaborations (i, i+1) + 1;
+          end if;
+        end if;
+      end loop;
+    end loop;
+
+  --end;
 
 
 
