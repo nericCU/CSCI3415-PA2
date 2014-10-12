@@ -1,5 +1,7 @@
 V "GNAT Lib v4.8"
 M P AB W=b
+A -mtune=generic
+A -march=x86-64
 P SS ZX
 
 RN
@@ -50,8 +52,8 @@ D gnat.ads		20110801150502 fd2ad2f1
 D g-regpat.ads		20110801150502 b85d88ef
 D interfac.ads		20110906094621 129923ea
 D i-cstrea.ads		20130102105938 3286f6aa
-D marvel_universe_hint.adb  20141008204020 02284d57
-D system.ads		20140416144300 bd760655
+D marvel_universe_hint.adb  20141012211822 02284d57
+D system.ads		20140416144310 90249111
 D s-conca2.ads		20090420091404 fbd0f2fc
 D s-conca3.ads		20090420091404 762a026a
 D s-conca7.ads		20090420091404 1c57f31a
@@ -112,7 +114,7 @@ X 16 gnat.ads
 X 17 g-regpat.ads
 72K14*Regpat=72:36 20|7w64 8r63
 X 20 marvel_universe_hint.adb
-10U11*Marvel_Universe_Hint 10b11 265l5 265t25
+10U11*Marvel_Universe_Hint 10b11 267l5 267t25
 13a3 Input_File_Name{string} 91r30 92r23
 14p3 Input_File{12|52P9} 91m9 91r9 99r15 138r17 158r15 175r28 176r12 177r30
 . 178r14 195m10 195r10
@@ -121,7 +123,7 @@ X 20 marvel_universe_hint.adb
 18i3 Last{natural} 99m35 100r52 138m37 139r51 141r32 158m35 159r53
 21i3 N_Vertices{positive} 105m5 108r55 110r21 121r47 127r68 172r49 203r29
 22i3 N_Characters{positive} 106m5 109r57 110r6 127r34 127r48 171r34 172r29
-. 201r29 203r42 232r54 232r73 236r35
+. 201r29 203r42 232r54 232r73 238r35
 25P8 String_Access(string) 26r58
 26A8 Vertex_Name_Array(25P8)<integer> 27r43 121r23
 27P8 Vertex_Name_Array_Access(26A8) 29r18
@@ -129,11 +131,11 @@ X 20 marvel_universe_hint.adb
 32A8 Edge_Matrix(boolean)<integer><integer> 33r37 127r16
 33P8 Edge_Matrix_Access(32A8) 35r11
 35p3 Edges{33P8} 127m3 128r3 179m9 179r9 207r38 208r39 210r14 211r16 212r12
-. 237r12 237r27 238r14
+. 239r12 239r27 240r14
 38A8 Count_Vector(natural)<integer> 47r40 207r24 208r25
 41A8 Collaboration_Matrix(natural)<integer><integer> 42r46 232r27
 42P8 Collaboration_Matrix_Access(41A8) 44r20
-44p3 Collaborations{42P8} 232m5 233r5 239m13 239r13 239r40
+44p3 Collaborations{42P8} 232m5 233r5 241m13 241r13 241r40
 47U13 Print_Statistics 47b13 47>31 47>54 86l7 86t23 218s5 219s5
 47a31 Counts{38A8} 48r33 49r26 49r34 50r33 51r26 51r34 56r14 57r10 59r20
 . 61r10 63r20 66r29
@@ -161,8 +163,8 @@ X 20 marvel_universe_hint.adb
 208a5 Comic_Book_Counts{38A8} 214m11 214r36 219r23
 210i9 I{integer} 212r19 213r29 213r53
 211i11 J{integer} 212r22 214r30 214r55
-235i9 j{integer} 237r22 237r41 238r24
-236i11 i{integer} 237r19 237r35 238r21 239r29 239r32 239r56 239r59
+237i9 j{integer} 239r22 239r41 240r24
+238i11 i{integer} 239r19 239r35 240r21 241r29 241r32 241r56 241r59
 X 33 s-regpat.ads
 336i7*First{natural} 20|105r55 106r57 145r59
 337i7*Last{natural} 20|105r76 106r78 145r80

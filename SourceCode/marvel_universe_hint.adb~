@@ -9,6 +9,10 @@ use Ada.Text_IO, Ada.Integer_Text_IO, Ada.Float_Text_IO, GNAT.Regpat, Ada.Numeri
 
 procedure Marvel_Universe_Hint is
 
+   -- test output
+begin
+   Put ("The standard deviation of the " & Title & " is ");
+   end
   --Declaration of input file
   Input_File_Name : constant String := "porgat.txt";
   Input_File : File_Type;
@@ -16,7 +20,7 @@ procedure Marvel_Universe_Hint is
   --Declaration of Buffer String used to read input file
   Buffer : String (1 .. 100); -- This should be sufficient for us.
   Last : Natural;
-  
+
   --Declaration of variables to keep track of Number of Vertices and Number of Characters
   N_Vertices : Positive;
   N_Characters : Positive;
@@ -231,6 +235,8 @@ begin
   --declare
     Collaborations := new Collaboration_Matrix (1 .. N_Characters, 1 .. N_Characters);
     Collaborations.all := (others => (others => 0));
+
+  --code below by: Eric Nguyen
   --begin
     for j in Integer range 6487..19428 loop
       for i in Integer range 1 .. N_Characters loop

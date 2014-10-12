@@ -1,0 +1,10 @@
+project Default is
+
+   for Main use ("marvel_universe_hint.adb");
+
+   package Compiler is
+      for Default_Switches ("ada") use ("-g", "-O2");
+   end Compiler;
+
+end Default;
+
