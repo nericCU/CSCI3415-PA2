@@ -243,13 +243,30 @@ begin
     Print_Statistics (Comic_Book_Counts, "characters per comic book");		--calls Print_Statistics for comic books
   end; --end sub-procedure
 
-  -- Your code to do the other processing will go here.
+-- Here is the code for "Total Number of Collaborations"
 
-  -- Here is the code for "Total Number of Collaborations"
+  --Edges := new Edge_Matrix (1 .. N_Characters, N_Characters + 1 .. N_Vertices);
+  --Edges.all := (others => (others => False));
 
+  -- Here is where I will create and initialize the collaboration matrix to keep
+  -- everything organized. by Kyle Ryan
+  --declare
+    Collaborations := new Collaboration_Matrix (1 .. N_Characters, 1 .. N_Characters);
+    Collaborations.all := (others => (others => 0));
 
+  --code below by: Eric Nguyen
+  --begin
+    for j in Integer range 6487..19428 loop
+      for i in Integer range 1 .. N_Characters loop
+        if Edges (i, j) = Edges ( i+1 , j) then
+          if Edges (i, j) = true then
+            Collaborations (i, i+1) := Collaborations (i, i+1) + 1;
+          end if;
+        end if;
+      end loop;
+    end loop;
 
-
+  --end;
 
   -- Here is the code for "Number of Collaborating Pairs"
 
