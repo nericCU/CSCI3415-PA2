@@ -256,15 +256,21 @@ begin
     CollaborationsTotal : Natural := 0;
     CollaborationPairs : Natural := 0;
     AverageNumberCollabs : Float := 0.00;
+var1 : Float := 0.00;
+var2 : Float := 0.00;
+var3 : Float := 0.00;
 
   begin
-    Put_Line("Creating Collaboration Matrix.");
+    Put_Line("Creating Collaboration Matrix...");
+
+    --Basically, loop through each column (commic book) and compare current hero to other heros for appearances.
+    --The two if-statements can be simplified to: if Edges(hero1, commic) = Edges(hero2,comic) = true, add +1 to collab matrix.
     commic_books_loop:
-      for commicBook in Edges'Range(2) loop  -- values 6487 through 19428
+      for commicBook in Edges'Range(2) loop  -- values 6487 through 19428. These are the Commic Book Indexes
         characters_loop:
-          for Hero in 1 .. N_Characters-1 loop  --values 1 through 6485. 1 before final
+          for Hero in 1 .. N_Characters-1 loop  --values 1 through 6485. The last character collabs has already been calculated by the time it is reached.
             if Edges (Hero, commicBook) = true then
-              otherHero_loop:
+              otherHero_loop:                   --loop to compare current character to other characters in the commic book
                 for otherHero in 1 .. N_Characters-Hero loop
                   if Edges (Hero, commicBook) = Edges (Hero + otherHero, commicBook) then
                     Collaborations ( Hero, Hero+otherHero) := Collaborations ( Hero, Hero+otherHero) + 1;
@@ -280,7 +286,6 @@ begin
       for I in Collaborations'Range(1) loop
         row_loop:
           for J in Collaborations'Range(2) loop
-            CellCount := ( CellCount + 1 );
             if Collaborations(I,J) > 0 then
               CollaborationsTotal := (CollaborationsTotal + Collaborations(I,J) );
               CollaborationPairs := (CollaborationPairs+1);
@@ -288,15 +293,49 @@ begin
           end loop row_loop;
       end loop column_loop;
 
+    --print Total Collaborations and Collaboration Pairs
     Put_Line("The total number of collaboration is " & Positive'Image (CollaborationsTotal) & "." );
     Put_Line("The total number of collaborators is " & Positive'Image (CollaborationPairs) & "." );
 
 
   -- Here is the code for "Mean Number of Collaborations Per Character"
+  --Below is the average calculated with "Total Collaborations in all Comic Books" divided by "Total Characters"
     --Calculate and print average collaborations per comic book
-    --AverageNumberCollabs := (CollaborationsTotal / Integer'Value (N_Characters) );
-    Put_Line("The average number of collaborators is " & Float'Image (AverageNumberCollabs) & "." );
+    AverageNumberCollabs := (Float(CollaborationsTotal) / Float(N_Characters) );
 
+    --print Average Number of Collaborators with 2 digits after decimal
+    put("The average number of collaborators is ");-- & Float'Image (averageCollab) & "." );
+    put(AverageNumberCollabs, Fore => 4, Aft => 2, Exp => 0); New_Line;
+
+
+-- Here is alternative method where average is: Total Collaborations / Comics with Collabs
+  declare
+    av1 : Float := Float(CollaborationsTotal);
+    av2 : Float := Float(N_Characters);
+    averageCollab : Float := av1 / av2;
+
+	counter : Natural := 0;
+	counter2 : Natural := 0;
+    
+  begin
+    put("2The average number of collaborators is ");-- & Float'Image (averageCollab) & "." );
+    put(averageCollab, Fore => 4, Aft => 2, Exp => 0); New_Line;
+
+	for I in Edges'Range(2) loop -- values 6487 through 19428.
+		counter :=0;
+		for J in Edges'Range(1) loop   --values 1 - 6486
+			if Edges(J,I) = true then
+				counter := counter +1;
+			end if;
+			if J = 6486 then
+				Put_Line( "Hello World" & Positive'Image(J) );
+		end loop;
+	end loop;
+		
+			
+	put("books with collab is " & Positive'Image(counter2) & ".");
+
+  end;
 --The total number of collaboration is 569770.
 --The total number of collaborators is 168267.
 --The average number of collaborators is 51.89.
