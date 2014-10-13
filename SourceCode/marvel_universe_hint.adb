@@ -247,50 +247,18 @@ begin
     Print_Statistics (Comic_Book_Counts, "characters per comic book");		--calls Print_Statistics for comic books
   end; --end sub-procedure
 
--- Here is the code for "Total Number of Collaborations"
+--Here is the code for the Collaboration matrix
 
-  --Definition of Edges
-  --Edges := new Edge_Matrix (1 .. N_Characters, N_Characters + 1 .. N_Vertices);
-  --Edges.all := (others => (others => False));
-
-  --Declaration of Collaboration Matrix
-  --type Collaboration_Matrix is array (Positive range <>, Positive range <>) of Natural;
-  --type Collaboration_Matrix_Access is access Collaboration_Matrix;
-   --forward declaration
-  --Collaborations : Collaboration_Matrix_Access;
-
-  --declare
     Collaborations := new Collaboration_Matrix (1 .. N_Characters, 1 .. N_Characters);
     Collaborations.all := (others => (others => 0));
+  
+  declare
+    CollaborationsTotal : Natural := 0;
+    CollaborationPairs : Natural := 0;
+    AverageNumberCollabs : Float := 0.00;
 
-
-  --begin
---    for j in Integer range 6487..19428 loop
---      for i in Integer range 1 .. 6200 loop --N_Characters loop      
-      --for i in Integer range 1 .. 6485 loop --N_Characters loop
---        if Edges (i, j) = Edges ( i+1 , j) then
---          if Edges (i, j) = true then
-		--used to print value of i
---            	Put_Line( Integer'Image(i) );
-		--subtract 6486 to get index back in range
-		--Collaborations (i-6485, i-6484) := Collaborations (i-6485, i-6484) + 1;		
-		--Collaborations (i-6485, i-6484) := Collaborations (i-6485, i-6484) + 1;
---          end if;
---        end if;
---      end loop;
---    end loop;
-
-  --end;
-
-
-      --for J in Integer range 6487 .. 6490 loop --19428 loop
-      --J will go from 6487 to 19428
-      --for J in Integer range N_Characters + 1 .. N_Vertices loop
-			--if J > 19429 then
-        		  --Put_Line (Integer'Image (J) );
-       			 --end if;
-      --end loop commic_books_loop;
-
+  begin
+    Put_Line("Creating Collaboration Matrix.");
     commic_books_loop:
       for commicBook in Edges'Range(2) loop  -- values 6487 through 19428
         characters_loop:	
@@ -307,40 +275,32 @@ begin
       end loop commic_books_loop;
 
 
-	--if commicBook < 7000 then
-	--	Put_Line( Boolean'Image ( Edges(1, commicBook) ) );
-	--end if;
+-- Here is the code for "Total Number of Collaborations"
 
 
-  --used to print Edge list. Characters index along with their associated Commic index
-  --for M in Edges'Range(1) loop    --1 through 6486
-    --Put (Positive'Image (M));
-    --for bookname in Edges'Range(2) loop  --6487 through 19428
-      --if Edges (M, N) then
-        --Put (" " & Positive'Image (N));
-      --end if;
-	--if bookname <= 6500 then
-	  --Put_Line(Integer'Image (bookname) );
-	--end if;
-    --end loop;
-    --New_Line;
-  --end loop;
+    Put_Line("The total number of collaboration is " & Positive'Image (CollaborationsTotal) & "." );
+
 
 
   -- Here is the code for "Number of Collaborating Pairs"
 
 
 
+    Put_Line("The total number of collaborators is " & Positive'Image (CollaborationPairs) & "." );
 
 
   -- Here is the code for "Mean Number of Collaborations Per Character"
+    --Calculate and print average collaborations per comic book
+    --AverageNumberCollabs := (CollaborationsTotal / Integer'Value (N_Characters) );
+    Put_Line("The average number of collaborators is " & Float'Image (AverageNumberCollabs) & "." );
+
+--The total number of collaboration is 569770.
+--The total number of collaborators is 168267.
+--The average number of collaborators is 51.89.
 
 
 
-
-
-
-
+  end;
 
 end Marvel_Universe_Hint;
 
