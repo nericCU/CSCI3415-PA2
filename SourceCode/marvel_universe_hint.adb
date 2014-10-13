@@ -260,7 +260,10 @@ begin
       for i in Integer range 1 .. N_Characters loop
         if Edges (i, j) = Edges ( i+1 , j) then
           if Edges (i, j) = true then
-            Collaborations (i, i+1) := Collaborations (i, i+1) + 1;
+		--used to print value of i
+            	Put_Line( Integer'Image(i-6200) );
+		--subtract 6486 to get index back in range
+		Collaborations (i-6200, i-6199) := Collaborations (i-6200, i+6199) + 1;
           end if;
         end if;
       end loop;
