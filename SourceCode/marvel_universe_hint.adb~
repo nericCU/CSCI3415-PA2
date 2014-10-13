@@ -2,7 +2,7 @@
 -- CSCI3415-PA2: Analysis of Marvel Universe using the Ada Programming Language
 -- Created by: (Professor) Douglas Milton
 -- Modified by: Team 7- Eric Nguyen, Raphael O'Flynn, Gabriella Ramirez, Paul Rodriquez, Kyle Ryan
--- Last Modified: October-06-2014
+-- Last Modified: October-13-2014
 
 with Ada.Text_IO, Ada.Integer_Text_IO, Ada.Float_Text_IO, GNAT.Regpat, Ada.Numerics.Elementary_Functions;
 use Ada.Text_IO, Ada.Integer_Text_IO, Ada.Float_Text_IO, GNAT.Regpat, Ada.Numerics.Elementary_Functions;
@@ -77,9 +77,9 @@ procedure Marvel_Universe_Hint is
       declare
         X : Float := Float (Counts (I));
       begin
-        N := N + 1;								--calculates number of iterations within count array
-        Sum := Sum + X;							--calculates the sum of the values within count array
-        Sum_Squares := Sum_Squares + X * X;		--calculates the squared sum of the values within count array
+        N := N + 1;				--calculates number of iterations within count array
+        Sum := Sum + X;				--calculates the sum of the values within count array
+        Sum_Squares := Sum_Squares + X * X;	--calculates the squared sum of the values within count array
       end; --end sub-procedure
     end loop;
 	
@@ -110,20 +110,20 @@ begin
   --sub-procedure
   declare
     Matches : Match_Array (0 .. 2);
-    Vertices_Regexp : constant string := "^\*Vertices (\d+) (\d+)$";  					--regular expression to parse first line 
+    Vertices_Regexp : constant string := "^\*Vertices (\d+) (\d+)$";    --regular expression to parse first line 
   begin
-    Get_Line (Input_File, Buffer, Last);												--reads first line of Input_File
+    Get_Line (Input_File, Buffer, Last);    --reads first line of Input_File
     Match (Compile (Vertices_Regexp), Buffer (1 .. Last), Matches);
-    if Matches (0) = No_Match then														--exits if first line does not match *Vertices # #
+    if Matches (0) = No_Match then    --exits if first line does not match *Vertices # #
       Put_Line ("*Vertices line was not found.");
       return;
     end if;
-    N_Vertices := Positive'Value (Buffer (Matches (1).First .. Matches (1).Last)); 		--set value to number of vertices (character + comic books) from first line
-    N_Characters := Positive'Value (Buffer (Matches (2).First .. Matches (2).Last)); 	--set value to number of character from first line
+    N_Vertices := Positive'Value (Buffer (Matches (1).First .. Matches (1).Last));    --set value to number of vertices (character + comic books) from first line
+    N_Characters := Positive'Value (Buffer (Matches (2).First .. Matches (2).Last));    --set value to number of character from first line
   end; --end sub-procedure
   
-  Put_Line ("Number of vertices = " & Positive'Image (N_Vertices));						--displays number of vertices (character + comic books) 
-  Put_Line ("Number of characters = " & Positive'Image (N_Characters));					--displays number of character
+  Put_Line ("Number of vertices = " & Positive'Image (N_Vertices));    --displays number of vertices (character + comic books) 
+  Put_Line ("Number of characters = " & Positive'Image (N_Characters));    --displays number of character
   --error checking for number of vertices (character + comic books) to be less than number of character
   if N_Characters > N_Vertices then 
     Put_Line ("The number of characters must not exceed the number of vertices.");
@@ -137,6 +137,8 @@ begin
   -- of access types, which are automatically initialized to null. (2) We
   -- set the values before they are used anyway.
   Vertex_Names := new Vertex_Name_Array (1 .. N_Vertices);
+
+
   -- We would like to create and initialize the edge matrix with the following
   -- statement, but it creates the contents on the stack and then copies it to
   -- newly created object. This overflows the stack with the default stack size
@@ -149,14 +151,14 @@ begin
   --sub-procedure
   declare
     Matches : Match_Array (0 .. 2);
-    Vertex_Regexp : constant String := "^(\d+) \""(.*)\""$";				--regular expression to parse a line (keeping name only)
+    Vertex_Regexp : constant String := "^(\d+) \""(.*)\""$";			--regular expression to parse a line (keeping name only)
     Vertex_Pattern_Matcher : Pattern_Matcher := Compile (Vertex_Regexp);	--compiles the regular expression
   begin 
     Put_Line ("Reading the vertex names.");
-    for I in Vertex_Names'range loop										--loops through all the characters and comic books (N_Vertices)
-      Get_Line (Input_File, Buffer, Last);									--read line from Input_File move into buffer
+    for I in Vertex_Names'range loop							--loops through all the characters and comic books (N_Vertices)
+      Get_Line (Input_File, Buffer, Last);						--read line from Input_File move into buffer
       Match (Vertex_Pattern_Matcher, Buffer (1 .. Last), Matches);			--parse buffer using regular expression
-      if Matches (0) = No_Match then										--error checking (did not match regular expression requirement)
+      if Matches (0) = No_Match then							--error checking (did not match regular expression requirement)
         Put_Line (Buffer (1 .. Last));
         Put_Line ("Failed to match vertex name regular expression.");
         return;
@@ -165,9 +167,10 @@ begin
     end loop;
   end; --end sub-procedure
 
---  for I in Vertex_Names'Range loop
---    Put_Line (Positive'Image (I) & " : " & Vertex_Names (I).all);
---  end loop;
+  --Used to output Vertex_Name index and Commic Names
+  --for I in Vertex_Names'Range loop
+    --Put_Line (Positive'Image (I) & " : " & Vertex_Names (I).all);
+  --end loop;
 
   -- Read and parse the (trivial) *Edgeslist line.
   --sub-procedure
@@ -176,7 +179,7 @@ begin
     Matches : Match_Array (0 .. 0);
     Edgeslist_Regexp : constant String := "^\*Edgeslist$";			--regular expression to parse *Edgeslist line
   begin
-    Get_Line (Input_File, Buffer, Last);							--read line from Input_File move into buffer
+    Get_Line (Input_File, Buffer, Last);					--read line from Input_File move into buffer
     Match (Compile (Edgeslist_Regexp), Buffer (1 .. Last), Matches);
     if Matches (0) = No_Match then
       Put_Line ("*Edgelist line not found.");
@@ -191,29 +194,30 @@ begin
   --sub-procedure
   declare
     --Characters
-    Source : Positive range 1 .. N_Characters;					--declaring an integer in the range of (1 to the number of characters) 
+    Source : Positive range 1 .. N_Characters;				--declaring an integer in the range of (1 to the number of characters) 
 	--Comic books
     Target : Positive range N_Characters + 1 .. N_Vertices;		--declaring an integer in the range of (number of characters to the number vertices) 
   begin
     Put_Line ("Reading the edge matrix.");
-    while not End_Of_File (Input_File) loop						--loop through remaining lines
+    while not End_Of_File (Input_File) loop		--loop through remaining lines
       Get (Input_File, Source);
-      while not End_Of_line (Input_File) loop					--loops through each line individually
+      while not End_Of_line (Input_File) loop		--loops through each line individually
         Get (Input_File, Target);
-        Edges (Source, Target) := True;							--sets the matrix location to true (character, comic book)
+        Edges (Source, Target) := True;			--sets the matrix location to true (character, comic book)
       end loop;
     end loop;
   end; --end sub-procedure
 
---  for I in Edges'Range(1) loop
---    Put (Positive'Image (I));
---    for J in Edges'Range(2) loop
---      if Edges (I, J) then
---        Put (" " & Positive'Image (J));
---      end if;
---    end loop;
---    New_Line;
---  end loop;
+  --used to print Edge list. Characters index along with their associated Commic index
+  --for I in Edges'Range(1) loop
+    --Put (Positive'Image (I));
+    --for J in Edges'Range(2) loop
+      --if Edges (I, J) then
+        --Put (" " & Positive'Image (J));
+      --end if;
+    --end loop;
+    --New_Line;
+  --end loop;
 
   -- Close the input file.
   Close (Input_File);
@@ -231,11 +235,11 @@ begin
     Character_Counts : Count_Vector (Edges'Range (1)) := (others => 0);		--declares a vector of positive numbers with the range of (edge's column size)
     Comic_Book_Counts : Count_Vector (Edges'Range (2)) := (others => 0);	--declares a vector of positive numbers with the range of (edge's row size)
   begin
-    for I in Edges'Range (1) loop											--loops through every character
-      for J in Edges'Range (2) loop											--loops through every comic book
-        if Edges (I, J) then												--if the character was in the comic book (Edges (character, comic book) is true) then...
-          Character_Counts (I) := Character_Counts (I) + 1;					--increments Character_Counts (number of comic books character(I) has been in) 
-          Comic_Book_Counts (J) := Comic_Book_Counts (J) + 1;				--increments Comic_Book_Counts (number of characters in comic books(I)) 
+    for I in Edges'Range (1) loop		--loops through every character
+      for J in Edges'Range (2) loop		--loops through every comic book
+        if Edges (I, J) then			--if the character was in the comic book (Edges (character, comic book) is true) then...
+          Character_Counts (I) := Character_Counts (I) + 1;			--increments Character_Counts (number of comic books character(I) has been in) 
+          Comic_Book_Counts (J) := Comic_Book_Counts (J) + 1;			--increments Comic_Book_Counts (number of characters in comic books(I)) 
         end if;
       end loop;
     end loop;
@@ -245,29 +249,83 @@ begin
 
 -- Here is the code for "Total Number of Collaborations"
 
+  --Definition of Edges
   --Edges := new Edge_Matrix (1 .. N_Characters, N_Characters + 1 .. N_Vertices);
   --Edges.all := (others => (others => False));
 
-  -- Here is where I will create and initialize the collaboration matrix to keep
-  -- everything organized. by Kyle Ryan
+  --Declaration of Collaboration Matrix
+  --type Collaboration_Matrix is array (Positive range <>, Positive range <>) of Natural;
+  --type Collaboration_Matrix_Access is access Collaboration_Matrix;
+   --forward declaration
+  --Collaborations : Collaboration_Matrix_Access;
+
   --declare
     Collaborations := new Collaboration_Matrix (1 .. N_Characters, 1 .. N_Characters);
     Collaborations.all := (others => (others => 0));
 
-  --code below by: Eric Nguyen
+
   --begin
-    for j in Integer range 6487..19428 loop
-      for i in Integer range 1 .. N_Characters loop
-        if Edges (i, j) = Edges ( i+1 , j) then
-          if Edges (i, j) = true then
-            	Put_Line( Integer'Image(i-6200) );
-		Collaborations (i-6200, i-6199) := Collaborations (i-6200, i+6199) + 1;
-          end if;
-        end if;
-      end loop;
-    end loop;
+--    for j in Integer range 6487..19428 loop
+--      for i in Integer range 1 .. 6200 loop --N_Characters loop      
+      --for i in Integer range 1 .. 6485 loop --N_Characters loop
+--        if Edges (i, j) = Edges ( i+1 , j) then
+--          if Edges (i, j) = true then
+		--used to print value of i
+--            	Put_Line( Integer'Image(i) );
+		--subtract 6486 to get index back in range
+		--Collaborations (i-6485, i-6484) := Collaborations (i-6485, i-6484) + 1;		
+		--Collaborations (i-6485, i-6484) := Collaborations (i-6485, i-6484) + 1;
+--          end if;
+--        end if;
+--      end loop;
+--    end loop;
 
   --end;
+
+
+      --for J in Integer range 6487 .. 6490 loop --19428 loop
+      --J will go from 6487 to 19428
+      --for J in Integer range N_Characters + 1 .. N_Vertices loop
+			--if J > 19429 then
+        		  --Put_Line (Integer'Image (J) );
+       			 --end if;
+      --end loop commic_books_loop;
+
+    commic_books_loop:
+      for commicBook in Edges'Range(2) loop  -- values 6487 through 19428
+        characters_loop:	
+          for Hero in Edges'Range(1) loop  --values 1 through 6286
+		if Edges (Hero, commicBook) = true then
+			if Hero < N_Characters then
+				if Edges (Hero, commicBook) = Edges (Hero +1, commicBook) then
+					--Put_Line(Boolean'Image( Edges(Hero, commicBook) ) );
+					Collaborations ( Hero, Hero+1) := Collaborations ( Hero, Hero+1) + 1;
+				end if;
+			end if;
+		end if;
+          end loop characters_loop;      
+      end loop commic_books_loop;
+
+
+	--if commicBook < 7000 then
+	--	Put_Line( Boolean'Image ( Edges(1, commicBook) ) );
+	--end if;
+
+
+  --used to print Edge list. Characters index along with their associated Commic index
+  --for M in Edges'Range(1) loop    --1 through 6486
+    --Put (Positive'Image (M));
+    --for bookname in Edges'Range(2) loop  --6487 through 19428
+      --if Edges (M, N) then
+        --Put (" " & Positive'Image (N));
+      --end if;
+	--if bookname <= 6500 then
+	  --Put_Line(Integer'Image (bookname) );
+	--end if;
+    --end loop;
+    --New_Line;
+  --end loop;
+
 
   -- Here is the code for "Number of Collaborating Pairs"
 
