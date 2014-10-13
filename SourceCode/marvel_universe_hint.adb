@@ -261,31 +261,33 @@ begin
     Put_Line("Creating Collaboration Matrix.");
     commic_books_loop:
       for commicBook in Edges'Range(2) loop  -- values 6487 through 19428
-        characters_loop:	
-          for Hero in Edges'Range(1) loop  --values 1 through 6286
-		if Edges (Hero, commicBook) = true then
-			if Hero < N_Characters then  --stop before going over # of Characters (6486)
-				if Edges (Hero, commicBook) = Edges (Hero +1, commicBook) then
-					--Put_Line(Boolean'Image( Edges(Hero, commicBook) ) );
-					Collaborations ( Hero, Hero+1) := Collaborations ( Hero, Hero+1) + 1;
-				end if;
-			end if;
-		end if;
+        characters_loop:
+          for Hero in 1 .. N_Characters-1 loop  --values 1 through 6485. 1 before final
+            if Edges (Hero, commicBook) = true then
+              otherHero_loop:
+                for otherHero in 1 .. N_Characters-Hero loop
+                  if Edges (Hero, commicBook) = Edges (Hero + otherHero, commicBook) then
+                    Collaborations ( Hero, Hero+otherHero) := Collaborations ( Hero, Hero+otherHero) + 1;
+                  end if;
+		end loop otherHero_loop;
+            end if;
           end loop characters_loop;      
       end loop commic_books_loop;
 
 
--- Here is the code for "Total Number of Collaborations"
-
+-- Here is the code for "Total Number of Collaborations and Collaborating Pairs"
+    column_loop:
+      for I in Collaborations'Range(1) loop
+        row_loop:
+          for J in Collaborations'Range(2) loop
+            if Collaborations(I,J) > 0 then
+              CollaborationsTotal := (CollaborationsTotal + Collaborations(I,J) );
+              CollaborationPairs := (CollaborationPairs+1);
+            end if;
+          end loop row_loop;
+      end loop column_loop;
 
     Put_Line("The total number of collaboration is " & Positive'Image (CollaborationsTotal) & "." );
-
-
-
-  -- Here is the code for "Number of Collaborating Pairs"
-
-
-
     Put_Line("The total number of collaborators is " & Positive'Image (CollaborationPairs) & "." );
 
 
