@@ -304,42 +304,44 @@ var3 : Float := 0.00;
     AverageNumberCollabs := (Float(CollaborationsTotal) / Float(N_Characters) );
 
     --print Average Number of Collaborators with 2 digits after decimal
-    put("The average number of collaborators is ");-- & Float'Image (averageCollab) & "." );
+    put("The average number of collaborators (Total Collaborations / Total Characters) is ");
     put(AverageNumberCollabs, Fore => 4, Aft => 2, Exp => 0); New_Line;
 
-
--- Here is alternative method where average is: Total Collaborations / Comics with Collabs
-  declare
-    av1 : Float := Float(CollaborationsTotal);
-    av2 : Float := Float(N_Characters);
-    averageCollab : Float := av1 / av2;
-
-	counter : Natural := 0;
-	counter2 : Natural := 0;
-    
-  begin
-    put("2The average number of collaborators is ");-- & Float'Image (averageCollab) & "." );
-    put(averageCollab, Fore => 4, Aft => 2, Exp => 0); New_Line;
-
-	for I in Edges'Range(2) loop -- values 6487 through 19428.
-		counter :=0;
-		for J in Edges'Range(1) loop   --values 1 - 6486
-			if Edges(J,I) = true then
-				counter := counter +1;
-			end if;
-			if J = 6486 then
-				Put_Line( "Hello World" & Positive'Image(J) );
-		end loop;
+    --Here is alternative method where average is: Total Collaborations / Comics with Collabs
+    --This below part is probably not required but this average is closer to Doug's 51.89
+    declare
+      collabsPerBook : Natural := 0;
+      booksWithCollabs : Natural := 0;
+      tCollabDIVcomCollab : Float := 0.00;
+    begin
+      for I in Edges'Range(2) loop -- values 6487 through 19428.
+        collabsPerBook :=0;
+	  for J in Edges'Range(1) loop   --values 1 - 6486
+            if Edges(J,I) = true then
+              for K in 1 .. 6486-J loop
+                if Edges(J,I) = Edges(J+K, I) then
+                  collabsPerBook := collabsPerBook +1;
+                end if;
+              end loop;
+            end if;
+          
+            if J = 6486 then
+              if collabsPerBook > 0 then
+                booksWithCollabs := booksWithCollabs + 1;
+              end if;
+            end if;
+          end loop;
 	end loop;
-		
 			
-	put("books with collab is " & Positive'Image(counter2) & ".");
+        Put_Line("The number of books with collaboration is " & Positive'Image(booksWithCollabs) & ".");
 
-  end;
---The total number of collaboration is 569770.
---The total number of collaborators is 168267.
---The average number of collaborators is 51.89.
+	--Average = Total Collaborations / BooksWithCollab
+        tCollabDIVcomCollab := ( (Float(CollaborationsTotal)) / (Float(booksWithCollabs)) );
 
+        --Print alternate average
+        put("TotalCollab / BooksWithCollab = ");
+        put(tCollabDIVcomCollab, Fore => 4, Aft => 2, Exp => 0); New_Line;
+    end;
 
 
   end;
