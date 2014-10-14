@@ -84,10 +84,10 @@ procedure Marvel_Universe_Hint is
     end loop;
 	
 	--displays results
-    Put_Line ("The minimum " & Title & " is " &
+    Put_Line ("The minimum " & Title & " is" &
               Natural'Image (Minimum) & " (" &
               Vertex_Names (Minimum_Index).all & ").");  --maps Minimum_Index to Vertex_Names to display character or comic book name
-    Put_Line ("The maximum " & Title & " is " &
+    Put_Line ("The maximum " & Title & " is" &
               Natural'Image (Maximum) & " (" &
               Vertex_Names (Maximum_Index).all & ").");	 --maps Maximum_Index to Vertex_Names to display character or comic book name
 	--Calculates and displays average and standard deviation from sub-procedure.
@@ -251,9 +251,12 @@ begin
 
     Collaborations := new Collaboration_Matrix (1 .. N_Characters, 1 .. N_Characters);
     Collaborations.all := (others => (others => 0));
+
+
   
   declare
     CollaborationsTotal : Natural := 0;
+    --Collaborations_Counts : Count_Vector (1 .. N_Characters) := (others => 0);
     CollaborationPairs : Natural := 0;
     AverageNumberCollabs : Float := 0.00;
 var1 : Float := 0.00;
@@ -297,54 +300,53 @@ var3 : Float := 0.00;
     Put_Line("The total number of collaboration is " & Positive'Image (CollaborationsTotal) & "." );
     Put_Line("The total number of collaborators is " & Positive'Image (CollaborationPairs) & "." );
 
-
   -- Here is the code for "Mean Number of Collaborations Per Character"
   --Below is the average calculated with "Total Collaborations in all Comic Books" divided by "Total Characters"
     --Calculate and print average collaborations per comic book
-    AverageNumberCollabs := (Float(CollaborationsTotal) / Float(N_Characters) );
+    AverageNumberCollabs := (Float(2*CollaborationPairs) / Float(N_Characters) );
 
     --print Average Number of Collaborators with 2 digits after decimal
-    put("The mean number of collaborators per character (Total Collaborations / Total Characters) is ");
-    put(AverageNumberCollabs, Fore => 4, Aft => 2, Exp => 0); New_Line;
+    put("The mean number of collaborators per character is ");
+    put(AverageNumberCollabs, Fore => 0, Aft => 2, Exp => 0); New_Line;
 
     --Here is alternative method where average is: Total Collaborations / Comics with Collabs
     --This below part is probably not required but this average is closer to Doug's 51.89
     --If we take this part out, the program will run in under one minute. If we want it faster
     --but leave this part in, move the counters inside the Collab matrix construction above.
     --It's slow because it's basically iteratoring through the Edges matrix again.
-    declare
-      collabsPerBook : Natural := 0;
-      booksWithCollabs : Natural := 0;
-      tCollabDIVcomCollab : Float := 0.00;
-    begin
-      for I in Edges'Range(2) loop -- values 6487 through 19428.
-        collabsPerBook :=0;
-	  for J in Edges'Range(1) loop   --values 1 - 6486
-            if Edges(J,I) = true then
-              for K in 1 .. 6486-J loop
-                if Edges(J,I) = Edges(J+K, I) then
-                  collabsPerBook := collabsPerBook +1;
-                end if;
-              end loop;
-            end if;
-          
-            if J = 6486 then
-              if collabsPerBook > 0 then
-                booksWithCollabs := booksWithCollabs + 1;
-              end if;
-            end if;
-          end loop;
-	end loop;
+--    declare
+--      collabsPerBook : Natural := 0;
+--      booksWithCollabs : Natural := 0;
+--      tCollabDIVcomCollab : Float := 0.00;
+--    begin
+--      for I in Edges'Range(2) loop -- values 6487 through 19428.
+--       collabsPerBook :=0;
+--	  for J in Edges'Range(1) loop   --values 1 - 6486
+--            if Edges(J,I) = true then
+--              for K in 1 .. 6486-J loop
+--                if Edges(J,I) = Edges(J+K, I) then
+--                  collabsPerBook := collabsPerBook +1;
+--                end if;
+--              end loop;
+--            end if;
+--          
+--            if J = 6486 then
+--              if collabsPerBook > 0 then
+--                booksWithCollabs := booksWithCollabs + 1;
+--              end if;
+--            end if;
+--          end loop;
+--	end loop;
 			
-        Put_Line("The number of books with collaboration is " & Positive'Image(booksWithCollabs) & ".");
+--        Put_Line("The number of books with collaboration is " & Positive'Image(booksWithCollabs) & ".");
 
 	--Average = Total Collaborations / BooksWithCollab
-        tCollabDIVcomCollab := ( (Float(CollaborationsTotal)) / (Float(booksWithCollabs)) );
+--        tCollabDIVcomCollab := ( (Float(CollaborationsTotal)) / (Float(booksWithCollabs)) );
 
         --Print alternate average
-        put("TotalCollab / BooksWithCollab = ");
-        put(tCollabDIVcomCollab, Fore => 4, Aft => 2, Exp => 0); New_Line;
-    end;
+--        put("TotalCollab / BooksWithCollab = ");
+--        put(tCollabDIVcomCollab, Fore => 4, Aft => 2, Exp => 0); New_Line;
+--    end;
 
 
   end;
